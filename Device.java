@@ -1,4 +1,4 @@
-public abstract class Device {
+public class Device {
     String deviceName;
 
     public String getDeviceName() {

@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Tv implements Command {
+public class Tv extends Device implements Command {
     boolean status = false;
     int volume = 50;
     int brightness = 50;
