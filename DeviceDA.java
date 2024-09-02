@@ -4,30 +4,31 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class DeviceDA {
-    ArrayList<Device> deviceList;
+    static ArrayList<Device> deviceList = new ArrayList<>();;
 
     DeviceDA() throws FileNotFoundException {
-        deviceList = new ArrayList<>();
-        Device device;
+        if (deviceList.equals(null) || (deviceList.isEmpty())) {
 
-        Scanner sc = new Scanner(new FileReader("Device.csv"));
+            Device device;
 
-        while (sc.hasNext()) {
+            Scanner sc = new Scanner(new FileReader("Device.csv"));
 
-            String[] line = sc.nextLine().split(",");
-            switch (line[0]) {
-                case "t":
-                    device = new Tv();
-                    break;
-                default:
-                    device = new Device();
+            while (sc.hasNext()) {
+                String[] line = sc.nextLine().split(",");
+                switch (line[0]) {
+                    case "t":
+                        device = new Tv();
+                        break;
+                    default:
+                        device = new Device();
+                }
+                device.setDeviceName(line[1]);
+                deviceList.add(device);
             }
-            device.setDeviceName(line[1]);
-            deviceList.add(device);
         }
     }
 
-    public ArrayList<Device> getDeviceList() {
+    public static ArrayList<Device> getDeviceList() {
         return deviceList;
     }
 }

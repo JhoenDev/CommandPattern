@@ -7,7 +7,7 @@ public class Tv extends Device implements Command {
 
     @Override
     public void execute() {
-        System.out.println("Tv is turned " + (status ? "on" : "off") + ".");
+        System.out.println("\nTv is turned " + (status ? "on" : "off") + ".");
 
         boolean loop = true;
         while (loop) {
@@ -31,6 +31,22 @@ public class Tv extends Device implements Command {
                         on();
                     break;
 
+                case 2:
+                    incVol();
+                    break;
+
+                case 3:
+                    decVol();
+                    break;
+
+                case 4:
+                    incBri();
+                    break;
+
+                case 5:
+                    decBri();
+                    break;
+
                 case 0:
                     loop = false;
                     break;
@@ -45,13 +61,53 @@ public class Tv extends Device implements Command {
     @Override
     public void on() {
         this.status = true;
-        System.out.println("Tv is turned on.");
+        System.out.println("\nTv is turned on.");
     }
 
     @Override
     public void off() {
         this.status = false;
-        System.out.println("Tv is turned off.");
+        System.out.println("\nTv is turned off.");
+    }
+
+    public void incVol() {
+        if (this.volume == 100) {
+            System.out.println("\nTv volume is max.");
+            return;
+        }
+
+        this.volume = +5;
+        System.out.println("\nTv volume set to " + volume + "%.");
+    }
+
+    public void decVol() {
+        if (this.volume == 0) {
+            System.out.println("\nTv is muted.");
+            return;
+        }
+
+        this.volume = -5;
+        System.out.println("\nTv volume set to " + volume + "%.");
+    }
+
+    public void incBri() {
+        if (this.brightness == 100) {
+            System.out.println("\nTv brightness is max.");
+            return;
+        }
+
+        this.brightness = +5;
+        System.out.println("\nTv brightness set to " + volume + "%.");
+    }
+
+    public void decBri() {
+        if (this.brightness == 0) {
+            System.out.println("\nTv brightness is at lowest.");
+            return;
+        }
+
+        this.brightness = -5;
+        System.out.println("\nTv brightness set to " + volume + "%.");
     }
 
 }
