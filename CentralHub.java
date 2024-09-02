@@ -1,8 +1,8 @@
-import java.io.FileNotFoundException;
 import java.util.Scanner;
+import java.io.*;
 
 public class CentralHub {
-    public CentralHub() throws FileNotFoundException {
+    public CentralHub() throws IOException {
 
         boolean loop = true;
         while (loop) {
@@ -16,6 +16,9 @@ public class CentralHub {
             switch (input) {
                 case 1:
                     selectDevice();
+                    break;
+                case 2:
+                    addDevice();
                     break;
                 case 3:
                     loop = false;
@@ -47,6 +50,38 @@ public class CentralHub {
         }
     }
 
-    public void addDevice() {
+    public void addDevice() throws IOException, FileNotFoundException {
+        Device device;
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("\nSelect Type of Device: ");
+        System.out.println("[1] Tv");
+        System.out.print("[0] Back\n : ");
+        int input = sc.nextInt();
+        sc.nextLine();
+
+        System.out.print("\nType Device Name: ");
+        String name = sc.nextLine();
+
+        switch (input) {
+            case 1:
+                device = new Tv();
+                device.setDeviceName(name);
+
+                // write to csv
+                Writer writer = new FileWriter(new File("Device.csv"), true);
+                writer.write(name);
+                writer.flush();
+
+                // success message
+                System.out.print("\nNew Device Successfully Added.");
+                break;
+            case 0:
+                return;
+            default:
+                break;
+        }
+
     }
 }
