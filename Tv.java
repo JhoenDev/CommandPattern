@@ -1,5 +1,4 @@
 import java.util.*;
-import java.io.*;
 
 public class Tv implements Command {
     boolean status = false;
@@ -13,11 +12,13 @@ public class Tv implements Command {
         boolean loop = true;
         while (loop) {
             System.out.println("\n[1] Turn " + (status ? "off" : "on"));
-            System.out.println("[2] Increase Volume");
-            System.out.println("[3] Decrease Volume");
-            System.out.println("[4] Increase Brightness");
-            System.out.println("[5] Decrease Brightness");
-            System.out.println("[6] Back");
+            if (status) {
+                System.out.println("[2] Increase Volume");
+                System.out.println("[3] Decrease Volume");
+                System.out.println("[4] Increase Brightness");
+                System.out.println("[5] Decrease Brightness");
+            }
+            System.out.println("[0] Back\n : ");
 
             Scanner sc = new Scanner(System.in);
             int input = sc.nextInt();
@@ -30,7 +31,7 @@ public class Tv implements Command {
                         on();
                     break;
 
-                case 6:
+                case 0:
                     loop = false;
                     break;
 
