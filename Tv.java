@@ -10,11 +10,35 @@ public class Tv implements Command {
     public void execute() {
         System.out.println("Tv is turned " + (status ? "on" : "off") + ".");
 
-        System.out.println("\n[1] Turn " + (status ? "off" : "on"));
-        System.out.println("[2] Increase Volume");
-        System.out.println("[3] Decrease Volume");
-        System.out.println("[4] Increase Brightness");
-        System.out.println("[5] Decrease Brightness");
+        boolean loop = true;
+        while (loop) {
+            System.out.println("\n[1] Turn " + (status ? "off" : "on"));
+            System.out.println("[2] Increase Volume");
+            System.out.println("[3] Decrease Volume");
+            System.out.println("[4] Increase Brightness");
+            System.out.println("[5] Decrease Brightness");
+            System.out.println("[6] Back");
+
+            Scanner sc = new Scanner(System.in);
+            int input = sc.nextInt();
+
+            switch (input) {
+                case 1:
+                    if (status)
+                        off();
+                    else
+                        on();
+                    break;
+
+                case 6:
+                    loop = false;
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
     }
 
     @Override
