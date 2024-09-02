@@ -3,16 +3,20 @@ import java.util.Scanner;
 public class Light extends Device implements Command {
 
     boolean status = false;
-    int volume = 50;
     int brightness = 50;
 
     @Override
     public void execute() {
-        System.out.println("\nLight is turned " + (status ? "on" : "off") + ".");
 
         boolean loop = true;
         while (loop) {
+            if (status) {
+                System.out.println("\nLight is turned " + (status ? "on" : "off") + ".");
+                System.out.println("Brightness:\t" + brightness + "%");
+            }
+
             System.out.println("\n[1] Turn " + (status ? "off" : "on"));
+
             if (status) {
                 System.out.println("[2] Increase Brightness");
                 System.out.println("[3] Decrease Brightness");

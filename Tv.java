@@ -7,12 +7,17 @@ public class Tv extends Device implements Command {
 
     @Override
     public void execute() {
-        System.out.println("\nTv is turned " + (status ? "on" : "off") + ".");
-        // System.out.println("tv vol: " + this.volume + " tv bri: " + this.brightness);
 
         boolean loop = true;
         while (loop) {
+            if (status) {
+                System.out.println("\nTv is turned " + (status ? "on" : "off") + ".");
+                System.out.println("Volume:\t" + volume + "%");
+                System.out.println("Brightness:\t" + brightness + "%");
+            }
+
             System.out.println("\n[1] Turn " + (status ? "off" : "on"));
+
             if (status) {
                 System.out.println("[2] Increase Volume");
                 System.out.println("[3] Decrease Volume");

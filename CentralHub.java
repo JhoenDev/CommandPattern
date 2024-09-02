@@ -55,6 +55,7 @@ public class CentralHub {
         System.out.println("\nSelect Type of Device: ");
         System.out.println("[1] Tv");
         System.out.println("[2] Light");
+        System.out.println("[3] Thermostat");
         System.out.print("[0] Back\n : ");
         int input = sc.nextInt();
         sc.nextLine();
@@ -71,6 +72,12 @@ public class CentralHub {
 
             case 2:
                 device = new Light();
+                device.setDeviceName(name);
+                DeviceDA.deviceList.add(device);
+                break;
+
+            case 3:
+                device = new Thermostat();
                 device.setDeviceName(name);
                 DeviceDA.deviceList.add(device);
                 break;

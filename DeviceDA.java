@@ -22,6 +22,9 @@ public class DeviceDA {
                     case "l":
                         device = new Light();
                         break;
+                    case "th":
+                        device = new Thermostat();
+                        break;
                     default:
                         device = new Device();
                 }
