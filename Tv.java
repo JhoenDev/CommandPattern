@@ -8,6 +8,7 @@ public class Tv extends Device implements Command {
     @Override
     public void execute() {
         System.out.println("\nTv is turned " + (status ? "on" : "off") + ".");
+        // System.out.println("tv vol: " + this.volume + " tv bri: " + this.brightness);
 
         boolean loop = true;
         while (loop) {
@@ -71,13 +72,16 @@ public class Tv extends Device implements Command {
     }
 
     public void incVol() {
+        // System.out.println("tv vol: " + this.volume + " tv bri: " + this.brightness);
+
         if (this.volume == 100) {
             System.out.println("\nTv volume is max.");
             return;
+        } else {
+            this.volume = this.volume + 5;
+            System.out.println("\nTv volume set to " + this.volume + "%.");
         }
 
-        this.volume = +5;
-        System.out.println("\nTv volume set to " + volume + "%.");
     }
 
     public void decVol() {
@@ -86,8 +90,8 @@ public class Tv extends Device implements Command {
             return;
         }
 
-        this.volume = -5;
-        System.out.println("\nTv volume set to " + volume + "%.");
+        this.volume = this.volume - 5;
+        System.out.println("\nTv volume set to " + this.volume + "%.");
     }
 
     public void incBri() {
@@ -96,8 +100,8 @@ public class Tv extends Device implements Command {
             return;
         }
 
-        this.brightness = +5;
-        System.out.println("\nTv brightness set to " + volume + "%.");
+        this.brightness = this.brightness + 5;
+        System.out.println("\nTv brightness set to " + this.brightness + "%.");
     }
 
     public void decBri() {
@@ -106,8 +110,9 @@ public class Tv extends Device implements Command {
             return;
         }
 
-        this.brightness = -5;
-        System.out.println("\nTv brightness set to " + volume + "%.");
+        this.brightness = this.brightness - 5;
+        ;
+        System.out.println("\nTv brightness set to " + this.brightness + "%.");
     }
 
 }

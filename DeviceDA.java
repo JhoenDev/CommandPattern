@@ -19,6 +19,9 @@ public class DeviceDA {
                     case "t":
                         device = new Tv();
                         break;
+                    case "l":
+                        device = new Light();
+                        break;
                     default:
                         device = new Device();
                 }

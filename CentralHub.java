@@ -54,6 +54,7 @@ public class CentralHub {
 
         System.out.println("\nSelect Type of Device: ");
         System.out.println("[1] Tv");
+        System.out.println("[2] Light");
         System.out.print("[0] Back\n : ");
         int input = sc.nextInt();
         sc.nextLine();
@@ -66,20 +67,27 @@ public class CentralHub {
                 device = new Tv();
                 device.setDeviceName(name);
                 DeviceDA.deviceList.add(device);
-
-                // write to csv
-                Writer writer = new FileWriter(new File("Device.csv"), true);
-                writer.write("t," + name + "\n");
-                writer.flush();
-
-                // success message
-                System.out.println("\nNew Device Successfully Added.");
                 break;
+
+            case 2:
+                device = new Light();
+                device.setDeviceName(name);
+                DeviceDA.deviceList.add(device);
+                break;
+
             case 0:
                 return;
+
             default:
                 break;
         }
+        // write to csv
+        Writer writer = new FileWriter(new File("Device.csv"), true);
+        writer.write("t," + name + "\n");
+        writer.flush();
+
+        // success message
+        System.out.println("\nNew Device Successfully Added.");
 
     }
 }
