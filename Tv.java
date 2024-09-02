@@ -18,7 +18,7 @@ public class Tv extends Device implements Command {
                 System.out.println("[4] Increase Brightness");
                 System.out.println("[5] Decrease Brightness");
             }
-            System.out.println("[0] Back\n : ");
+            System.out.print("[0] Back\n : ");
 
             Scanner sc = new Scanner(System.in);
             int input = sc.nextInt();

@@ -8,4 +8,8 @@ public class Device {
     public void setDeviceName(String deviceName) {
         this.deviceName = deviceName;
     }
+
+    public void execute() {
+        System.out.println("Device is now Working.");
+    }
 }
