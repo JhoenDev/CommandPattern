@@ -13,8 +13,16 @@ public class DeviceDA {
         Scanner sc = new Scanner(new FileReader("Device.csv"));
 
         while (sc.hasNext()) {
-            device = new Device();
-            device.setDeviceName(sc.nextLine());
+
+            String[] line = sc.nextLine().split(",");
+            switch (line[0]) {
+                case "t":
+                    device = new Tv();
+                    break;
+                default:
+                    device = new Device();
+            }
+            device.setDeviceName(line[1]);
             deviceList.add(device);
         }
     }
