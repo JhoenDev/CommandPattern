@@ -63,23 +63,34 @@ public class CentralHub {
         System.out.print("\nType Device Name: ");
         String name = sc.nextLine();
 
+        Writer writer = new FileWriter(new File("Device.csv"), true);
+
         switch (input) {
             case 1:
                 device = new Tv();
                 device.setDeviceName(name);
                 DeviceDA.deviceList.add(device);
+
+                writer.write("t," + name + "\n");
+                writer.flush();
                 break;
 
             case 2:
                 device = new Light();
                 device.setDeviceName(name);
                 DeviceDA.deviceList.add(device);
+
+                writer.write("l," + name + "\n");
+                writer.flush();
                 break;
 
             case 3:
                 device = new Thermostat();
                 device.setDeviceName(name);
                 DeviceDA.deviceList.add(device);
+
+                writer.write("th," + name + "\n");
+                writer.flush();
                 break;
 
             case 0:
@@ -88,11 +99,6 @@ public class CentralHub {
             default:
                 break;
         }
-        // write to csv
-        Writer writer = new FileWriter(new File("Device.csv"), true);
-        writer.write("t," + name + "\n");
-        writer.flush();
-
         // success message
         System.out.println("\nNew Device Successfully Added.");
 
