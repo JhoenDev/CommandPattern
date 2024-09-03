@@ -10,8 +10,8 @@ public class Light extends Device implements Command {
 
         boolean loop = true;
         while (loop) {
+            System.out.println("\nLight [" + deviceName + "] is turned " + (status ? "on" : "off") + ".");
             if (status) {
-                System.out.println("\nLight [" + deviceName + "] is turned " + (status ? "on" : "off") + ".");
                 System.out.println("Brightness:\t" + brightness + "%");
             }
 

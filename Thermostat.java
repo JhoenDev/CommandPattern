@@ -10,8 +10,9 @@ public class Thermostat extends Device implements Command {
 
         boolean loop = true;
         while (loop) {
+
+            System.out.println("\nThermostat [" + deviceName + "] is turned " + (status ? "on" : "off") + ".");
             if (status) {
-                System.out.println("\nThermostat [" + deviceName + "] is turned " + (status ? "on" : "off") + ".");
                 System.out.println("Temperature:\t" + temperature + "C");
                 System.out.println("Fan Speed:\t" + fanSpeed);
             }

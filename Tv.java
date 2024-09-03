@@ -10,8 +10,8 @@ public class Tv extends Device implements Command {
 
         boolean loop = true;
         while (loop) {
+            System.out.println("\nTv [" + deviceName + "] is turned " + (status ? "on" : "off") + ".");
             if (status) {
-                System.out.println("\nTv [" + deviceName + "] is turned " + (status ? "on" : "off") + ".");
                 System.out.println("Volume:\t" + volume + "%");
                 System.out.println("Brightness:\t" + brightness + "%");
             }
