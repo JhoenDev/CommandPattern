@@ -12,7 +12,7 @@ public class Light extends Device implements Command {
         while (loop) {
             System.out.println("\nLight [" + deviceName + "] is turned " + (status ? "on" : "off") + ".");
             if (status) {
-                System.out.println("Brightness:\t" + brightness + "%");
+                System.out.println("Brightness: " + brightness + "%");
             }
 
             System.out.println("\n[1] Turn " + (status ? "off" : "on"));
@@ -73,7 +73,7 @@ public class Light extends Device implements Command {
 
         this.brightness = this.brightness + 5;
         ;
-        System.out.println("\nLight brightness set to " + brightness + "%.");
+        System.out.println("\nLight brightness increased to " + brightness + "%.");
     }
 
     public void decBri() {
@@ -84,7 +84,7 @@ public class Light extends Device implements Command {
 
         this.brightness = this.brightness - 5;
         ;
-        System.out.println("\nLight brightness set to " + brightness + "%.");
+        System.out.println("\nLight brightness decreased to " + brightness + "%.");
     }
 
 }

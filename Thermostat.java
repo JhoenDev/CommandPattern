@@ -13,8 +13,8 @@ public class Thermostat extends Device implements Command {
 
             System.out.println("\nThermostat [" + deviceName + "] is turned " + (status ? "on" : "off") + ".");
             if (status) {
-                System.out.println("Temperature:\t" + temperature + "C");
-                System.out.println("Fan Speed:\t" + fanSpeed);
+                System.out.println("Temperature: " + temperature + "C");
+                System.out.println("Fan Speed: " + fanSpeed);
             }
 
             System.out.println("\n[1] Turn " + (status ? "off" : "on"));
@@ -86,7 +86,7 @@ public class Thermostat extends Device implements Command {
 
         this.temperature = this.temperature + 5;
         ;
-        System.out.println("\nTemperature set to " + temperature + "C.");
+        System.out.println("\nTemperature increased to " + temperature + "C.");
     }
 
     public void decTemp() {
@@ -97,7 +97,7 @@ public class Thermostat extends Device implements Command {
 
         this.temperature = this.temperature - 5;
         ;
-        System.out.println("\nTemperature set to " + temperature + "C.");
+        System.out.println("\nTemperature decreased to " + temperature + "C.");
     }
 
     public void incfSpd() {
@@ -108,7 +108,7 @@ public class Thermostat extends Device implements Command {
 
         this.fanSpeed = this.fanSpeed + 1;
         ;
-        System.out.println("\nFan Speed set to " + fanSpeed + ".");
+        System.out.println("\nFan Speed increased to " + fanSpeed + ".");
     }
 
     public void decfSpd() {
@@ -119,7 +119,7 @@ public class Thermostat extends Device implements Command {
 
         this.fanSpeed = this.fanSpeed - 1;
         ;
-        System.out.println("\nFan Speed set to " + fanSpeed + ".");
+        System.out.println("\nFan Speed decreased to " + fanSpeed + ".");
     }
 
 }
