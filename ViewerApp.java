@@ -35,6 +35,17 @@ public class ViewerApp {
         System.out.println(tvDecBright.execute());
 
         //Thermostat
+        Thermostat thermostat = new Thermostat();
+
+        ThSwitchOn thSwitchOn = new ThSwitchOn(thermostat);
+        ThSwitchOff thSwitchOff = new ThSwitchOff(thermostat);
+        ThIncTemp thIncTempt = new ThIncTemp(thermostat);
+        ThDecTemp thDecTemp = new ThDecTemp(thermostat);
+
+        System.out.println(thSwitchOn.execute());
+        System.out.println(thSwitchOff.execute());
+        System.out.println(thIncTempt.execute());
+        System.out.println(thDecTemp.execute());
     }
 
 }
