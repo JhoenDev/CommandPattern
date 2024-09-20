@@ -7,29 +7,9 @@
 
 ---
 
-<br>
-
-## This Contains
-📁 commandPattern <br>
-- `ViewerApp.java` : Contains the main method of the project. Instantiates an example of an `CentralHub` object.
-- `CentralHub.java` : Has one constructor to start user selection of devices / add devices
-- `Device.java` : An abstract class that is implemeneted by `Tv`,`Light`, and `Thermostat`.
-- `DeviceDA.java` : Data Accessor for `Device.java`; see `Device.csv`
-- `Command.java` : An interface for execute, on and off commands
-- `Tv`,`Light`, `Thermostat`. : extends `Device`, implements `Commands`
-
-<br>
-
-## Screenshots
-
-#### 💾 Sample <br>
-: `class.java`, details. <br><br>
-![main](img)
-<br>
-
 ## UML
 
-![main](img)
+![image](cpuml.jpg)
 
 
 ## SW Instructions
